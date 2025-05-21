@@ -5,38 +5,66 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+li{
+  list-style: none;
+  border: 1px solid;
+  border-radius: 1rem;
+}
+
+.extension-list{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(380px, 1fr));
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.card-container{
+  padding: 1rem;
+}
+
+.card-container > .card-content{
+  display: flex;
+
+  & img{
+    width: 60px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.card-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn{
+  height: 30px;
+  width: 50px;
+  background-color: aliceblue;
+  border-radius: 50px;
+  position: relative;
+}
+
+@keyframes animate-toggle {
+  from{
+    justify-content: end;
+  }
+  to{
+    justify-content: start;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.toggle-btn > .knob{
+  position: absolute;
+  top: 2px;
+  left: 3.99px;
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
 }
