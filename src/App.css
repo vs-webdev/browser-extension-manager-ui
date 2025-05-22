@@ -69,11 +69,17 @@ li{
   left: 20px;
 }
 
-@keyframes animate-toggle {
-  from{
-    justify-content: end;
-  }
-  to{
-    justify-content: start;
+.filter-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-list{
+  display: flex;
+
+  & li{
+    margin-left: 1rem;
   }
 }
