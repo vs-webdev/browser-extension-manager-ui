@@ -1,21 +1,21 @@
-import { useState } from "react"
 
-const Card = ({content}) => {
-  const [toggles, setToggle] = useState([])
-  
+const Card = ({extension, removeFunc, id, handleToggle}) => {
+
   return (
     <div className="card-container">
       <div className="card-content">
-        <img src={content.logo} />
+        <img src={extension.logo} />
         <div>
-          <h3>{content.name}</h3>
-          <p>{content.description}</p>
+          <h3>{extension.name}</h3>
+          <p>{extension.description}</p>
         </div>
       </div>
 
       <div className="card-btn">
-        <button>Remove</button>
-        <div className="toggle-btn" ><div className="knob"></div></div>
+        <button onClick={() => removeFunc(id)}>Remove</button>
+        <div className={`toggle-btn`} onClick={() => handleToggle(id)}>
+          <div className={`knob ${extension.isActive ? 'isActive' : 'notActive'}`}></div>
+        </div>
       </div>
     </div>
   )

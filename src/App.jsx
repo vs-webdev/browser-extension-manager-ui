@@ -1,20 +1,29 @@
 import { useEffect, useState } from 'react'
 import ExtensionsList from './components/ExtensionsList'
+import uuid from 'react-uuid'
 import './App.css'
 
 function App() {
-  const [cardData, setCardData] = useState([])
+  const [extensions, setExtensions] = useState([])
+
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())
       .then((rawData) => {
-        setCardData(rawData)
+        const extensionsWithId = rawData.map((data) => {
+          const id = uuid()
+          return {
+            ...data,
+            id
+          }
+        })
+        setExtensions(extensionsWithId)
       })
   }, [])
 
   return (
     <>
-      <ExtensionsList cardList={cardData}/>
+      <ExtensionsList extensions={extensions} setExtensions={setExtensions}/>
     </>
   )
 }
