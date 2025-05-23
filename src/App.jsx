@@ -3,10 +3,12 @@ import ExtensionsList from './components/ExtensionsList'
 import ExtensionsFilter from './components/ExtensionsFilter'
 import uuid from 'react-uuid'
 import './App.css'
+import Header from './components/Header'
 
 function App() {
   const [extensions, setExtensions] = useState([])
   const [filter, setFilter] = useState('all')
+  const [theme, setTheme] = useState('light')
   
   useEffect(() => {
     fetch("data.json")
@@ -28,7 +30,8 @@ function App() {
 
   return (
     <>
-      <ExtensionsFilter setFilter={setFilter}/>
+      <Header theme={theme} setTheme={setTheme} />
+      <ExtensionsFilter filter={filter} setFilter={setFilter}/>
       <ExtensionsList extensions={extensions} filteredExtensions={filteredExtensions} setExtensions={setExtensions}/>
     </>
   )
