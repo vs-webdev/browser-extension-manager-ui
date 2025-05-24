@@ -21,6 +21,10 @@ function App() {
         setExtensions(extensionsWithId)
       })
     }, [])
+
+    useEffect(() => {
+      document.documentElement.setAttribute("data-theme", theme)
+    }, [theme])
     
     const filteredExtensions = extensions.filter(extension => {
       if (filter === 'active') return extension.isActive;
