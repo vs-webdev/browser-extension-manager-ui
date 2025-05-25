@@ -5,13 +5,13 @@ const ExtensionsFilter = ({filter, setFilter}) => {
     <div className="filter-head">
       <h2>Extensions List</h2>
       <ul className="filter-list">
-        <li>
+        <li className="filter-list-item">
           <button className={`${filter === 'all' ? 'filter-btn filter-active' : 'filter-btn'}`} onClick={() => setFilter('all')}>All</button>
         </li>
-        <li>
+        <li className="filter-list-item">
           <button className={`${filter === 'active' ? 'filter-btn filter-active' : 'filter-btn'}`} onClick={() => setFilter('active')}>Active</button>
         </li>
-        <li>
+        <li className="filter-list-item">
           <button className={`${filter === 'inactive' ? 'filter-btn filter-active' : 'filter-btn'}`} onClick={() => setFilter('inactive')}>Inactive</button>
         </li>
       </ul>
